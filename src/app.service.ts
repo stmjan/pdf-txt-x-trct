@@ -10,7 +10,7 @@ export class AppService {
       const data = await pdfParse(dataBuffer);
       return data.text;
     } catch (error) {
-      throw new InternalServerErrorException('Error processing PDF file');
+      throw new InternalServerErrorException(error.message);
     } finally {
       this.deleteFile(filePath);
     }
