@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>X-TRCTD Text</title>
+  <link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body>
+  <div class="content">
+    <a id='uploadAgain' href="/">Upload Another PDF</a>
+    <div class="page">
+      <button id="copyButton">&#x2398;</button>
+      <h1>Extracted Text:</h1>
+      <pre id='extractedText'>{{text}}</pre>
+    </div>
+  </div>
+</body>
+<script>
+  const copyButton = document.querySelector('#copyButton');
+  const extractedText = document.querySelector('#extractedText');
+  copyButton.addEventListener('click', function (e) {
+    console.log(extractedText.textContent);
+    navigator.clipboard.writeText(extractedText.textContent);
+    copyButton.style.borderColor = 'green';
+  });
+</script>
+</html>
